@@ -1,22 +1,31 @@
-# Zaskalet Digital Contact Card
+# Zaskalet Digital Contact Card v4
 
-Final privacy-first contact card for Mikhail Zaskalet.
+## Categories
+- Business: LinkedIn, email, WhatsApp
+- Interests: Discord, email
+- Amateur Radio: callsign 5B4ALJ, QRZ.com, email
+- Gaming: Discord, nickname Bogdan2K, email
+- Personal: Instagram, Facebook, WhatsApp, Telegram
+- Other: email
 
-## Replace the current site
-1. Download and unzip `zaskalet-digital-card-final.zip`.
-2. Open the GitHub repository `zaskalet-site/zaskalet-site`.
-3. Click `Add file` → `Upload files`.
-4. Drag all unzipped files into GitHub.
-5. Confirm replacement of existing files.
-6. Click `Commit changes`.
-7. Cloudflare Pages will deploy automatically in about 1–2 minutes.
+## IMPORTANT — add your actual links
+Open `contacts.js` in GitHub and fill in the blank values.
 
-## Important
-The Send button opens the visitor's email app with a prepared message addressed to:
-`m@zaskalet.com`
+Any blank link is hidden automatically, so the page will never show a broken button.
 
-Therefore `m@zaskalet.com` must be configured before the trip.
+Example:
+```js
+linkedin: "https://www.linkedin.com/in/your-profile",
+whatsapp: "https://wa.me/357XXXXXXXX",
+discord: "https://discord.gg/yourinvite",
+instagram: "https://www.instagram.com/yourprofile",
+facebook: "https://www.facebook.com/yourprofile",
+telegram: "https://t.me/yourusername"
+```
 
-## NFC / QR
-Use one permanent URL:
-https://zaskalet.com
+## Upload
+1. Extract the ZIP.
+2. In GitHub: Add file → Upload files.
+3. Upload every extracted file to the repository root.
+4. Commit changes.
+5. Cloudflare deploys automatically.

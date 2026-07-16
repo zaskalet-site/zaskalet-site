@@ -3,11 +3,5 @@ NFC SETUP
 Write one URL record only:
 https://zaskalet.com
 
-NFC Tools:
-1. Write
-2. Add a record
-3. URL / URI
-4. Enter https://zaskalet.com
-5. Write
-6. Test with Android and iPhone
-7. Do not permanently lock the tag yet
+Do not store contact details directly on the NFC tag.
+Do not permanently lock the tag until it has been tested on Android and iPhone.

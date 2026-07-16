@@ -2,88 +2,65 @@
 :root{
   font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   color-scheme:dark;
+  --bg:#080a0d;--panel:rgba(17,20,25,.92);--panel2:#151a21;
+  --text:#f4f6f8;--muted:#9ba5b2;--line:rgba(255,255,255,.09);
 }
-html{background:#070809}
+html{background:var(--bg)}
 body{
-  margin:0;
-  min-height:100vh;
+  margin:0;min-height:100vh;color:var(--text);
   background:
-    radial-gradient(circle at 20% 0%,#1a2330 0,transparent 38%),
-    radial-gradient(circle at 100% 100%,#151a21 0,transparent 36%),
-    #070809;
-  color:#f4f6f8;
+    radial-gradient(circle at 15% 0%,#1a2330 0,transparent 38%),
+    radial-gradient(circle at 100% 100%,#151b23 0,transparent 38%),
+    var(--bg);
 }
 .shell{min-height:100vh;display:grid;place-items:center;padding:24px}
 .card{
-  width:min(100%,560px);
-  background:rgba(16,19,24,.92);
-  border:1px solid rgba(255,255,255,.09);
-  border-radius:28px;
-  padding:34px;
-  box-shadow:0 28px 90px rgba(0,0,0,.48);
-  backdrop-filter:blur(18px);
+  width:min(100%,570px);padding:34px;border:1px solid var(--line);border-radius:28px;
+  background:var(--panel);box-shadow:0 30px 95px rgba(0,0,0,.5);backdrop-filter:blur(18px)
 }
 .logo{
-  width:58px;height:58px;border-radius:17px;
-  display:grid;place-items:center;
-  background:#f4f6f8;color:#0b0d10;
-  font-weight:850;font-size:21px;letter-spacing:-.04em;
-  margin-bottom:28px;
+  width:66px;height:66px;border-radius:19px;display:grid;place-items:center;
+  margin-bottom:30px;background:#f4f6f8;color:#0b0d10;font-size:24px;font-weight:850;letter-spacing:-.04em
 }
-.eyebrow{font-size:12px;letter-spacing:.18em;color:#9aa4b2;margin:0 0 10px}
-h1{font-size:clamp(36px,8vw,56px);line-height:1.02;margin:0;letter-spacing:-.045em}
-.role{margin:11px 0 0;color:#e3e8ee;font-size:19px;font-weight:650}
-.intro{font-size:17px;line-height:1.58;color:#aab4c0;margin:24px 0 31px}
-h2{font-size:16px;color:#e8edf2;margin:0 0 15px}
+.eyebrow,.kicker{margin:0 0 10px;color:var(--muted);font-size:12px;letter-spacing:.18em}
+h1{margin:0;font-size:clamp(36px,8vw,56px);line-height:1.02;letter-spacing:-.045em}
+.role{margin:11px 0 0;font-size:19px;font-weight:650;color:#e3e8ee}
+.intro{margin:32px 0 31px;color:#aeb7c2;font-size:17px;line-height:1.58}
+h2{margin:0 0 15px;font-size:17px;color:#edf1f5}
 .choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-button,a,input,textarea{font:inherit}
-.choices button,.primary,.action-link{
-  border-radius:14px;padding:14px 16px;border:1px solid rgba(255,255,255,.10);
-  transition:.18s ease;
-}
+button,a{font:inherit}
 .choices button{
-  background:#151a21;color:#edf1f5;cursor:pointer;text-align:left;
+  display:flex;gap:10px;align-items:center;padding:15px 16px;border:1px solid rgba(255,255,255,.10);
+  border-radius:14px;background:var(--panel2);color:#edf1f5;cursor:pointer;text-align:left;transition:.18s ease
 }
-.choices button:hover{
-  transform:translateY(-1px);
-  border-color:rgba(255,255,255,.27);
-  background:#1a2029;
+.choices button:hover{transform:translateY(-1px);background:#1b212a;border-color:rgba(255,255,255,.27)}
+.section-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+.section-heading h2{font-size:25px;letter-spacing:-.025em}
+.back-button{
+  width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--panel2);
+  color:#eef2f6;cursor:pointer;font-size:20px
 }
-.context-message{font-size:16px;line-height:1.55;color:#b8c1cc;margin:0 0 18px}
-form{display:grid;gap:14px}
-label{display:grid;gap:7px;color:#dfe5eb;font-size:14px}
-.muted{color:#7f8996;font-weight:400}
-input,textarea{
-  width:100%;
-  border:1px solid rgba(255,255,255,.10);
-  background:#0f1318;
-  color:#f3f6f9;
-  border-radius:12px;
-  padding:13px 14px;
-  outline:none;
+.context-message{margin:0 0 18px;color:#b8c1cc;font-size:16px;line-height:1.55}
+.facts{display:grid;gap:8px;margin:0 0 14px}
+.fact{
+  display:flex;justify-content:space-between;gap:20px;padding:13px 14px;border:1px solid var(--line);
+  border-radius:13px;background:#10141a
 }
-input:focus,textarea:focus{border-color:rgba(255,255,255,.35);box-shadow:0 0 0 3px rgba(255,255,255,.05)}
-textarea{resize:vertical;min-height:110px}
-.primary,.action-link{
-  display:block;
-  width:100%;
-  background:#f4f6f8;color:#0b0d10;
-  font-weight:750;text-align:center;text-decoration:none;
-  cursor:pointer;
+.fact span:first-child{color:#8993a0}.fact span:last-child{font-weight:650;text-align:right}
+.contact-links{display:grid;gap:10px}
+.contact-link,.save-contact{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:15px 16px;border:1px solid var(--line);border-radius:14px;text-decoration:none;transition:.18s ease
 }
-.primary:hover,.action-link:hover{transform:translateY(-1px);background:#fff}
-.text-button{
-  display:block;margin:4px auto 0;border:0;background:none;
-  color:#8f99a6;cursor:pointer;padding:8px;
-}
-.privacy{
-  font-size:13px;line-height:1.55;color:#7e8793;
-  margin:28px 0 0;border-top:1px solid rgba(255,255,255,.07);padding-top:18px;
-}
+.contact-link{background:var(--panel2);color:#edf1f5}
+.contact-link:hover{transform:translateY(-1px);background:#1b212a;border-color:rgba(255,255,255,.27)}
+.link-main{display:flex;align-items:center;gap:11px}.link-label{font-weight:650}.link-note{color:#88929e;font-size:13px}
+.save-contact{margin-top:14px;background:#f4f6f8;color:#0b0d10;font-weight:750}
+.save-contact:hover{transform:translateY(-1px);background:#fff}
+.privacy{margin:28px 0 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.07);color:#7e8793;font-size:13px;line-height:1.55}
 footer{margin-top:10px;color:#59616c;font-size:12px}
-.hidden{display:none}
+.hidden{display:none!important}
 @media(max-width:500px){
-  .card{padding:24px;border-radius:22px}
-  .choices{grid-template-columns:1fr}
-  h1{font-size:42px}
+  .card{padding:24px;border-radius:22px}.choices{grid-template-columns:1fr}h1{font-size:42px}
+  .logo{width:62px;height:62px}.fact{align-items:flex-start;flex-direction:column;gap:4px}.fact span:last-child{text-align:left}
 }
