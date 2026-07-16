@@ -6,5 +6,7 @@ ORG:Zaskalet
 TITLE:Technology Entrepreneur
 EMAIL;TYPE=INTERNET:m@zaskalet.com
 URL:https://zaskalet.com
-NOTE:Digital contact card.
+URL;TYPE=Telegram:https://t.me/Mikhail_nnn
+X-SOCIALPROFILE;TYPE=telegram:https://t.me/Mikhail_nnn
+NOTE:Telegram: @Mikhail_nnn
 END:VCARD

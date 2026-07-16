@@ -22,9 +22,86 @@
         <p class="intro">AI systems, telecommunications solutions, and technology.</p>
       </header>
 
-      <section id="categoryScreen">
-        <h2>How do you know me?</h2>
-        <div class="choices" role="group" aria-label="How do you know me?">
+      <section id="homeScreen">
+        <a class="primary-action" href="mikhail-zaskalet.vcf" download>
+          <span>
+            <strong>Save my contact</strong>
+            <small>Add my details to your phone</small>
+          </span>
+          <span aria-hidden="true">↓</span>
+        </a>
+
+        <div class="divider"><span>or</span></div>
+
+        <button id="shareButton" class="secondary-action" type="button">
+          <span>
+            <strong>Share your contact with me</strong>
+            <small>Send your details securely by email</small>
+          </span>
+          <span aria-hidden="true">→</span>
+        </button>
+
+        <button id="connectButton" class="secondary-action" type="button">
+          <span>
+            <strong>Connect another way</strong>
+            <small>LinkedIn, messengers, radio, gaming and more</small>
+          </span>
+          <span aria-hidden="true">→</span>
+        </button>
+      </section>
+
+      <section id="shareScreen" class="hidden" aria-live="polite">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">SHARE YOUR CONTACT</p>
+            <h2>Nice to meet you!</h2>
+          </div>
+          <button class="back-button" type="button" data-back aria-label="Back">←</button>
+        </div>
+
+        <form id="shareForm">
+          <label>
+            Name <span aria-hidden="true">*</span>
+            <input name="name" type="text" autocomplete="name" required>
+          </label>
+          <label>
+            Company / Organization
+            <input name="company" type="text" autocomplete="organization">
+          </label>
+          <label>
+            Email or messenger <span aria-hidden="true">*</span>
+            <input name="contact" type="text" required>
+          </label>
+          <label>
+            How do you know me?
+            <select name="context">
+              <option>Business</option>
+              <option>Interests</option>
+              <option>Amateur Radio</option>
+              <option>Gaming</option>
+              <option>Personal</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="4"></textarea>
+          </label>
+          <button class="form-submit" type="submit">Send</button>
+        </form>
+
+        <p class="form-note">The form opens your email app with a prepared message. Nothing is stored on this website.</p>
+      </section>
+
+      <section id="categoryScreen" class="hidden" aria-live="polite">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">CONNECT ANOTHER WAY</p>
+            <h2>Choose a context</h2>
+          </div>
+          <button class="back-button" type="button" data-back aria-label="Back">←</button>
+        </div>
+        <div class="choices" role="group" aria-label="Choose a context">
           <button type="button" data-category="business">💼 <span>Business</span></button>
           <button type="button" data-category="interests">🎯 <span>Interests</span></button>
           <button type="button" data-category="radio">📡 <span>Amateur Radio</span></button>
@@ -40,16 +117,11 @@
             <p id="categoryKicker" class="kicker"></p>
             <h2 id="categoryTitle">Connect</h2>
           </div>
-          <button id="backButton" class="back-button" type="button" aria-label="Back">←</button>
+          <button id="categoryBackButton" class="back-button" type="button" aria-label="Back">←</button>
         </div>
-
         <p id="categoryDescription" class="context-message"></p>
         <div id="identityFacts" class="facts hidden"></div>
         <div id="contactLinks" class="contact-links"></div>
-
-        <a class="save-contact" href="mikhail-zaskalet.vcf" download>
-          <span>Save contact</span><span aria-hidden="true">↓</span>
-        </a>
       </section>
 
       <p class="privacy">Personal contact information is shared after we connect.</p>

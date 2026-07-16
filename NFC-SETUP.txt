@@ -3,5 +3,5 @@ NFC SETUP
 Write one URL record only:
 https://zaskalet.com
 
-Do not store contact details directly on the NFC tag.
-Do not permanently lock the tag until it has been tested on Android and iPhone.
+Do not store personal contact details directly on the tag.
+Do not permanently lock the tag until tested on Android and iPhone.

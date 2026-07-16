@@ -1,5 +1,39 @@
 const C = window.ZASKALET_CONTACTS || {};
 
+const screens = {
+  home: document.getElementById("homeScreen"),
+  share: document.getElementById("shareScreen"),
+  categories: document.getElementById("categoryScreen"),
+  contact: document.getElementById("contactScreen")
+};
+
+function showScreen(name) {
+  Object.entries(screens).forEach(([key, el]) => el.classList.toggle("hidden", key !== name));
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+document.getElementById("shareButton").addEventListener("click", () => showScreen("share"));
+document.getElementById("connectButton").addEventListener("click", () => showScreen("categories"));
+document.querySelectorAll("[data-back]").forEach(button => button.addEventListener("click", () => showScreen("home")));
+document.getElementById("categoryBackButton").addEventListener("click", () => showScreen("categories"));
+
+document.getElementById("shareForm").addEventListener("submit", event => {
+  event.preventDefault();
+  const data = new FormData(event.currentTarget);
+  const subject = `New contact — ${data.get("context") || "Other"}`;
+  const body = [
+    `Name: ${data.get("name") || ""}`,
+    `Company / Organization: ${data.get("company") || ""}`,
+    `Email or messenger: ${data.get("contact") || ""}`,
+    `Context: ${data.get("context") || ""}`,
+    "",
+    "Message:",
+    `${data.get("message") || ""}`
+  ].join("\n");
+
+  window.location.href = `mailto:${C.email || "m@zaskalet.com"}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
+
 const categories = {
   business: {
     kicker: "BUSINESS",
@@ -7,9 +41,9 @@ const categories = {
     description: "For business, partnerships, projects, and professional conversations.",
     facts: [],
     links: [
-      { icon:"in", label:"LinkedIn", note:"Professional profile", href:C.linkedin },
-      { icon:"✉", label:"Email", note:C.email || "", href:C.email ? `mailto:${C.email}` : "" },
-      { icon:"◉", label:"WhatsApp", note:"Direct message", href:C.whatsapp }
+      {icon:"in", label:"LinkedIn", note:"Professional profile", href:C.linkedin},
+      {icon:"✉", label:"Email", note:C.email || "", href:C.email ? `mailto:${C.email}` : ""},
+      {icon:"◉", label:"WhatsApp", note:"Direct message", href:C.whatsapp}
     ]
   },
   interests: {
@@ -18,32 +52,28 @@ const categories = {
     description: "For technology, AI, engineering, and other shared interests.",
     facts: [],
     links: [
-      { icon:"◈", label:"Discord", note:"Connect on Discord", href:C.discord },
-      { icon:"✉", label:"Email", note:C.email || "", href:C.email ? `mailto:${C.email}` : "" }
+      {icon:"◈", label:"Discord", note:"Connect on Discord", href:C.discord},
+      {icon:"✉", label:"Email", note:C.email || "", href:C.email ? `mailto:${C.email}` : ""}
     ]
   },
   radio: {
     kicker: "AMATEUR RADIO",
     title: "On the air",
     description: "For amateur radio contacts and radio-related conversations.",
-    facts: [
-      { label:"Callsign", value:C.callsign }
-    ],
+    facts: [{label:"Callsign", value:C.callsign}],
     links: [
-      { icon:"◉", label:"QRZ.com", note:C.callsign || "", href:C.qrz },
-      { icon:"✉", label:"Email", note:C.email || "", href:C.email ? `mailto:${C.email}` : "" }
+      {icon:"◉", label:"QRZ.com", note:C.callsign || "", href:C.qrz},
+      {icon:"✉", label:"Email", note:C.email || "", href:C.email ? `mailto:${C.email}` : ""}
     ]
   },
   gaming: {
     kicker: "GAMING",
     title: "Gaming contact",
     description: "For PUBG, esports, gaming communities, and related projects.",
-    facts: [
-      { label:"Nickname", value:C.gamingNickname }
-    ],
+    facts: [{label:"Nickname", value:C.gamingNickname}],
     links: [
-      { icon:"◈", label:"Discord", note:"Connect on Discord", href:C.discord },
-      { icon:"✉", label:"Email", note:C.email || "", href:C.email ? `mailto:${C.email}` : "" }
+      {icon:"◈", label:"Discord", note:"Connect on Discord", href:C.discord},
+      {icon:"✉", label:"Email", note:C.email || "", href:C.email ? `mailto:${C.email}` : ""}
     ]
   },
   personal: {
@@ -52,10 +82,10 @@ const categories = {
     description: "For friends and personal connections.",
     facts: [],
     links: [
-      { icon:"◎", label:"Instagram", note:"Social profile", href:C.instagram },
-      { icon:"f", label:"Facebook", note:"Social profile", href:C.facebook },
-      { icon:"◉", label:"WhatsApp", note:"Direct message", href:C.whatsapp },
-      { icon:"➤", label:"Telegram", note:"Direct message", href:C.telegram }
+      {icon:"◎", label:"Instagram", note:"Social profile", href:C.instagram},
+      {icon:"f", label:"Facebook", note:"Social profile", href:C.facebook},
+      {icon:"◉", label:"WhatsApp", note:"Direct message", href:C.whatsapp},
+      {icon:"➤", label:"Telegram", note:"@Mikhail_nnn", href:C.telegram}
     ]
   },
   other: {
@@ -64,20 +94,18 @@ const categories = {
     description: "For anything that does not fit the categories above.",
     facts: [],
     links: [
-      { icon:"✉", label:"Email", note:C.email || "", href:C.email ? `mailto:${C.email}` : "" }
+      {icon:"✉", label:"Email", note:C.email || "", href:C.email ? `mailto:${C.email}` : ""}
     ]
   }
 };
 
-const categoryScreen = document.getElementById("categoryScreen");
-const contactScreen = document.getElementById("contactScreen");
 const kicker = document.getElementById("categoryKicker");
 const title = document.getElementById("categoryTitle");
 const description = document.getElementById("categoryDescription");
 const facts = document.getElementById("identityFacts");
 const links = document.getElementById("contactLinks");
 
-function safeExternalLink(anchor, href) {
+function setLink(anchor, href) {
   anchor.href = href;
   if (!href.startsWith("mailto:")) {
     anchor.target = "_blank";
@@ -104,33 +132,34 @@ function openCategory(key) {
   });
 
   links.innerHTML = "";
-  (category.links || []).filter(item => item.href).forEach(item => {
-    const a = document.createElement("a");
-    a.className = "contact-link";
-    safeExternalLink(a, item.href);
-    a.innerHTML = `
-      <span class="link-main">
-        <span aria-hidden="true">${item.icon}</span>
-        <span>
-          <span class="link-label">${item.label}</span>
-          <span class="link-note">${item.note || ""}</span>
-        </span>
-      </span>
-      <span aria-hidden="true">↗</span>`;
-    links.appendChild(a);
-  });
+  const visibleLinks = (category.links || []).filter(item => item.href);
 
-  categoryScreen.classList.add("hidden");
-  contactScreen.classList.remove("hidden");
-  window.scrollTo({top:0,behavior:"smooth"});
+  if (visibleLinks.length === 0) {
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.textContent = "Contact links for this section will be added shortly.";
+    links.appendChild(empty);
+  } else {
+    visibleLinks.forEach(item => {
+      const a = document.createElement("a");
+      a.className = "contact-link";
+      setLink(a, item.href);
+      a.innerHTML = `
+        <span class="link-main">
+          <span aria-hidden="true">${item.icon}</span>
+          <span>
+            <span class="link-label">${item.label}</span>
+            <span class="link-note">${item.note || ""}</span>
+          </span>
+        </span>
+        <span aria-hidden="true">↗</span>`;
+      links.appendChild(a);
+    });
+  }
+
+  showScreen("contact");
 }
 
 document.querySelectorAll("[data-category]").forEach(button => {
   button.addEventListener("click", () => openCategory(button.dataset.category));
-});
-
-document.getElementById("backButton").addEventListener("click", () => {
-  contactScreen.classList.add("hidden");
-  categoryScreen.classList.remove("hidden");
-  window.scrollTo({top:0,behavior:"smooth"});
 });
