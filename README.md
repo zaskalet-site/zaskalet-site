@@ -1,11 +1,9 @@
-# Zaskalet Digital Contact Card v8
+# Zaskalet Digital Contact Card v9
 
-This version is optimized for speed and clarity:
-- Save Contact is the primary action.
-- Share your contact opens a bottom sheet.
-- Business / Interests / Amateur Radio / Gaming / Personal / General open bottom sheets.
-- No page transitions.
-- Larger MZ monogram.
-- Unknown links remain hidden automatically.
+Main screen now has only three clear actions:
+- Save My Contact
+- Connect with Me
+- Share Your Details
 
-Later, edit only `contacts-v8.js` to add real contact URLs.
+The category menu opens in a bottom sheet.
+Later, edit only `contacts-v9.js` to add real links.

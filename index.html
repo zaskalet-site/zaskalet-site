@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#080a0d">
-  <title>Mikhail Zaskalet — Digital Contact Card</title>
+  <title>Mikhail Zaskalet</title>
   <meta name="description" content="Privacy-first digital contact card for Mikhail Zaskalet.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <style>
@@ -15,51 +15,40 @@
       font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       color-scheme:dark;
       --bg:#080a0d;--panel:#111419;--panel2:#171c23;--text:#f5f7f9;
-      --muted:#9ba5b2;--line:rgba(255,255,255,.10);--accent:#f5f7f9
+      --muted:#9ba5b2;--line:rgba(255,255,255,.10)
     }
     html{background:var(--bg)}
     body{
       margin:0;min-height:100vh;color:var(--text);
       background:
-        radial-gradient(circle at 10% 0%,#1c2939 0,transparent 40%),
+        radial-gradient(circle at 8% 0%,#1c2939 0,transparent 40%),
         radial-gradient(circle at 100% 100%,#151c25 0,transparent 40%),
         var(--bg)
     }
     body.modal-open{overflow:hidden}
     .shell{min-height:100vh;display:grid;place-items:center;padding:24px}
     .card{
-      width:min(100%,610px);padding:38px;border:1px solid var(--line);border-radius:30px;
+      width:min(100%,540px);padding:36px;border:1px solid var(--line);border-radius:30px;
       background:rgba(17,20,25,.97);box-shadow:0 30px 100px rgba(0,0,0,.55)
     }
     .logo{
       width:88px;height:88px;border-radius:25px;display:grid;place-items:center;
-      margin-bottom:32px;background:#f5f7f9;color:#0b0d10;font-size:32px;font-weight:950;letter-spacing:-.075em
+      margin-bottom:34px;background:#f5f7f9;color:#173b6b;font-size:32px;font-weight:950;letter-spacing:-.075em
     }
-    .eyebrow{margin:0 0 10px;color:#a3adba;font-size:12px;letter-spacing:.18em}
-    h1{margin:0;font-size:clamp(40px,8vw,60px);line-height:1.01;letter-spacing:-.05em}
+    h1{margin:0;font-size:clamp(40px,9vw,59px);line-height:1.01;letter-spacing:-.05em}
     .role{margin:12px 0 0;font-size:20px;font-weight:720;color:#e9edf1}
     .intro{margin:32px 0;color:#b5bec9;font-size:17px;line-height:1.6}
     button,a,input,textarea,select{font:inherit}
 
     .action{
       width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;
-      border-radius:16px;padding:17px 18px;text-decoration:none;text-align:left;transition:.16s ease
+      border-radius:17px;padding:19px 19px;text-decoration:none;text-align:left;transition:.16s ease
     }
     .action:hover{transform:translateY(-1px)}
     .action.primary{background:#f5f7f9;color:#0b0d10;border:1px solid #f5f7f9}
-    .action.secondary{margin-top:10px;background:#171c23;color:#eef2f6;border:1px solid var(--line);cursor:pointer}
+    .action.secondary{margin-top:11px;background:#171c23;color:#eef2f6;border:1px solid var(--line);cursor:pointer}
     .action.secondary:hover{background:#1c232d;border-color:rgba(255,255,255,.26)}
-    .action strong{display:block;font-size:16px}.action small{display:block;margin-top:4px;font-size:13px;opacity:.68;line-height:1.35}
-
-    .connect{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
-    .connect h2{margin:0 0 6px;font-size:17px}
-    .connect p{margin:0 0 15px;color:#8993a0;font-size:13px}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .tile{
-      display:flex;align-items:center;gap:10px;padding:15px 16px;border:1px solid var(--line);
-      border-radius:14px;background:#171c23;color:#eef2f6;cursor:pointer;text-align:left;transition:.16s ease
-    }
-    .tile:hover{transform:translateY(-1px);background:#1c232d;border-color:rgba(255,255,255,.26)}
+    .action strong{display:block;font-size:17px}.action small{display:block;margin-top:4px;font-size:13px;opacity:.68;line-height:1.35}
 
     .privacy{margin:30px 0 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.07);color:#8d97a4;font-size:13px;line-height:1.55}
     footer{margin-top:10px;color:#858f9b;font-size:12px}
@@ -70,7 +59,7 @@
     }
     .backdrop.open{display:flex}
     .sheet{
-      width:min(100%,610px);max-height:min(82vh,760px);overflow:auto;padding:22px;border-radius:26px 26px 22px 22px;
+      width:min(100%,560px);max-height:min(84vh,780px);overflow:auto;padding:22px;border-radius:26px 26px 22px 22px;
       background:#12161c;border:1px solid rgba(255,255,255,.12);box-shadow:0 28px 90px rgba(0,0,0,.62);
       transform:translateY(18px);opacity:0;animation:rise .18s ease forwards
     }
@@ -83,6 +72,14 @@
     .close{
       width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:#1a2028;color:#eef2f6;cursor:pointer
     }
+
+    .context-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .context-btn{
+      display:flex;align-items:center;gap:11px;padding:15px 16px;border:1px solid var(--line);
+      border-radius:14px;background:#181e26;color:#eef2f6;cursor:pointer;text-align:left
+    }
+    .context-btn:hover{background:#1d252f;border-color:rgba(255,255,255,.26)}
+
     .links{display:grid;gap:10px}
     .link{
       display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 16px;
@@ -100,7 +97,6 @@
       width:100%;border:1px solid var(--line);background:#0f1318;color:#f3f6f9;border-radius:12px;
       padding:13px 14px;outline:none
     }
-    input:focus,textarea:focus,select:focus{border-color:rgba(255,255,255,.35);box-shadow:0 0 0 3px rgba(255,255,255,.05)}
     textarea{resize:vertical;min-height:100px}
     .submit{border:0;border-radius:14px;padding:15px 16px;background:#f5f7f9;color:#0b0d10;font-weight:800;cursor:pointer}
     .form-note{margin:12px 0 0;color:#7f8995;font-size:12px;line-height:1.5}
@@ -113,7 +109,7 @@
     .toast.show{transform:translate(-50%,0);opacity:1}
 
     @media(max-width:500px){
-      .card{padding:24px;border-radius:23px}.grid{grid-template-columns:1fr}h1{font-size:43px}
+      .card{padding:24px;border-radius:23px}.context-grid{grid-template-columns:1fr}h1{font-size:43px}
       .logo{width:78px;height:78px;font-size:29px}.sheet{padding:20px}
     }
   </style>
@@ -122,41 +118,32 @@
   <main class="shell">
     <section class="card">
       <div class="logo" aria-hidden="true">MZ</div>
-      <p class="eyebrow">DIGITAL CONTACT CARD</p>
       <h1>Mikhail Zaskalet</h1>
       <p class="role">Technology Entrepreneur</p>
       <p class="intro">AI systems, telecommunications solutions, and technology ventures.</p>
 
       <a id="saveContact" class="action primary" href="mikhail-zaskalet.vcf" download>
-        <span><strong>Save Contact</strong><small>Add me to your contacts</small></span>
+        <span><strong>Save My Contact</strong><small>Add me to your contacts</small></span>
         <span aria-hidden="true">↓</span>
       </a>
 
-      <button id="shareContact" class="action secondary" type="button">
-        <span><strong>Share your contact</strong><small>Send me your details securely</small></span>
+      <button id="connectButton" class="action secondary" type="button">
+        <span><strong>Connect with Me</strong><small>Choose the best way to stay in touch</small></span>
         <span aria-hidden="true">→</span>
       </button>
 
-      <section class="connect">
-        <h2>Choose how you'd like to connect</h2>
-        <p>Select the context that fits best.</p>
-        <div class="grid">
-          <button class="tile" data-category="business" type="button">💼 <span>Business</span></button>
-          <button class="tile" data-category="interests" type="button">🎯 <span>Interests</span></button>
-          <button class="tile" data-category="radio" type="button">📡 <span>Amateur Radio</span></button>
-          <button class="tile" data-category="gaming" type="button">🎮 <span>Gaming</span></button>
-          <button class="tile" data-category="personal" type="button">🤝 <span>Personal</span></button>
-          <button class="tile" data-category="general" type="button">✉ <span>General</span></button>
-        </div>
-      </section>
+      <button id="shareButton" class="action secondary" type="button">
+        <span><strong>Share Your Details</strong><small>Send me your contact information</small></span>
+        <span aria-hidden="true">→</span>
+      </button>
 
-      <p class="privacy">Personal contact details are available after we connect.</p>
+      <p class="privacy">Personal contact information is shared after we connect.</p>
       <footer>© 2026 Mikhail Zaskalet</footer>
     </section>
   </main>
 
   <div id="backdrop" class="backdrop" aria-hidden="true">
-    <section id="sheet" class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
       <div class="grabber"></div>
       <div id="sheetContent"></div>
     </section>
@@ -164,15 +151,15 @@
 
   <div id="toast" class="toast">Contact card opened</div>
 
-  <script src="contacts-v8.js"></script>
+  <script src="contacts-v9.js"></script>
   <script>
-    const C = window.ZASKALET_CONTACTS || {};
-    const backdrop = document.getElementById("backdrop");
-    const content = document.getElementById("sheetContent");
-    const toast = document.getElementById("toast");
+    const C=window.ZASKALET_CONTACTS||{};
+    const backdrop=document.getElementById("backdrop");
+    const content=document.getElementById("sheetContent");
+    const toast=document.getElementById("toast");
 
     function openSheet(html){
-      content.innerHTML = html;
+      content.innerHTML=html;
       backdrop.classList.add("open");
       backdrop.setAttribute("aria-hidden","false");
       document.body.classList.add("modal-open");
@@ -186,7 +173,7 @@
     backdrop.addEventListener("click",e=>{if(e.target===backdrop)closeSheet()});
     document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSheet()});
 
-    function ext(href){return href && !href.startsWith("mailto:") ? ' target="_blank" rel="noopener noreferrer"' : ""}
+    function ext(href){return href&&!href.startsWith("mailto:")?' target="_blank" rel="noopener noreferrer"':""}
     function link(icon,label,note,href){
       if(!href)return "";
       return `<a class="link" href="${href}"${ext(href)}><span class="link-main"><span>${icon}</span><span><span class="label">${label}</span><span class="note">${note||""}</span></span></span><span>↗</span></a>`;
@@ -196,90 +183,91 @@
       return `<div class="fact"><span>${label}</span><span>${value}</span></div>`;
     }
 
-    const categories = {
-      business:{
-        kicker:"BUSINESS",title:"Professional contact",
-        desc:"For projects, partnerships, investment, and professional conversations.",
-        body:()=>[
-          link("in","LinkedIn","Professional profile",C.linkedin),
-          link("✉","Email",C.email||"",C.email?`mailto:${C.email}`:""),
-          link("◉","WhatsApp","Direct message",C.whatsapp)
-        ].join("")
-      },
-      interests:{
-        kicker:"INTERESTS",title:"Shared interests",
-        desc:"For technology, AI, engineering, and other shared interests.",
-        body:()=>[
-          link("◈","Discord","Connect on Discord",C.discord),
-          link("➤","Telegram","@Mikhail_nnn",C.telegram),
-          link("✉","Email",C.email||"",C.email?`mailto:${C.email}`:"")
-        ].join("")
-      },
-      radio:{
-        kicker:"AMATEUR RADIO",title:"On the air",
-        desc:"For amateur radio contacts and radio-related conversations.",
-        body:()=>[
-          fact("Callsign",C.callsign),
-          link("◉","QRZ.com",C.callsign||"",C.qrz),
-          link("✉","Email",C.email||"",C.email?`mailto:${C.email}`:"")
-        ].join("")
-      },
-      gaming:{
-        kicker:"GAMING",title:"Gaming contact",
-        desc:"For PUBG, esports, gaming communities, and related projects.",
-        body:()=>[
-          fact("Nickname",C.gamingNickname),
-          link("◈","Discord","Connect on Discord",C.discord),
-          link("✉","Email",C.email||"",C.email?`mailto:${C.email}`:"")
-        ].join("")
-      },
-      personal:{
-        kicker:"PERSONAL",title:"Stay in touch",
-        desc:"For friends and personal connections.",
-        body:()=>[
-          link("➤","Telegram","@Mikhail_nnn",C.telegram),
-          link("◉","WhatsApp","Direct message",C.whatsapp),
-          link("◎","Instagram","Social profile",C.instagram),
-          link("f","Facebook","Social profile",C.facebook)
-        ].join("")
-      },
-      general:{
-        kicker:"GENERAL",title:"Get in touch",
-        desc:"For anything that does not fit the categories above.",
-        body:()=>link("✉","Email",C.email||"",C.email?`mailto:${C.email}`:"")
-      }
+    const categories={
+      business:{kicker:"BUSINESS",title:"Professional contact",desc:"For projects, partnerships, investment, and professional conversations.",body:()=>[
+        link("in","LinkedIn","Professional profile",C.linkedin),
+        link("✉","Email",C.email||"",C.email?`mailto:${C.email}`:""),
+        link("◉","WhatsApp","Direct message",C.whatsapp)
+      ].join("")},
+      colleague:{kicker:"FORMER COLLEAGUE",title:"Reconnect",desc:"For people I have worked with before.",body:()=>[
+        link("in","LinkedIn","Professional profile",C.linkedin),
+        link("✉","Email",C.email||"",C.email?`mailto:${C.email}`:""),
+        link("◉","WhatsApp","Direct message",C.whatsapp)
+      ].join("")},
+      radio:{kicker:"AMATEUR RADIO",title:"On the air",desc:"For amateur radio contacts and radio-related conversations.",body:()=>[
+        fact("Callsign",C.callsign),
+        link("◉","QRZ.com",C.callsign||"",C.qrz),
+        link("✉","Email",C.email||"",C.email?`mailto:${C.email}`:"")
+      ].join("")},
+      gaming:{kicker:"GAMING",title:"Gaming contact",desc:"For PUBG, esports, gaming communities, and related projects.",body:()=>[
+        fact("Nickname",C.gamingNickname),
+        link("◈","Discord","Connect on Discord",C.discord),
+        link("✉","Email",C.email||"",C.email?`mailto:${C.email}`:"")
+      ].join("")},
+      interests:{kicker:"SHARED INTERESTS",title:"Shared interests",desc:"For technology, AI, engineering, and other common interests.",body:()=>[
+        link("◈","Discord","Connect on Discord",C.discord),
+        link("➤","Telegram","@Mikhail_nnn",C.telegram),
+        link("✉","Email",C.email||"",C.email?`mailto:${C.email}`:"")
+      ].join("")},
+      personal:{kicker:"PERSONAL",title:"Stay in touch",desc:"For friends and personal connections.",body:()=>[
+        link("➤","Telegram","@Mikhail_nnn",C.telegram),
+        link("◉","WhatsApp","Direct message",C.whatsapp),
+        link("◎","Instagram","Social profile",C.instagram),
+        link("f","Facebook","Social profile",C.facebook)
+      ].join("")},
+      other:{kicker:"OTHER",title:"Get in touch",desc:"For anything that does not fit the categories above.",body:()=>[
+        link("✉","Email",C.email||"",C.email?`mailto:${C.email}`:"")
+      ].join("")}
     };
 
-    document.querySelectorAll("[data-category]").forEach(btn=>{
-      btn.addEventListener("click",()=>{
-        const c=categories[btn.dataset.category];
-        const body=c.body() || `<div class="empty">Contact links for this section will be added shortly.</div>`;
-        openSheet(`
-          <div class="sheet-head">
-            <div><p class="kicker">${c.kicker}</p><h2 id="sheetTitle">${c.title}</h2></div>
-            <button class="close" type="button" data-close aria-label="Close">×</button>
-          </div>
-          <p class="desc">${c.desc}</p>
-          <div class="links">${body}</div>
-        `);
-      });
-    });
-
-    document.getElementById("shareContact").addEventListener("click",()=>{
+    function openCategory(key){
+      const c=categories[key];
+      const body=c.body()||`<div class="empty">Contact links for this section will be added shortly.</div>`;
       openSheet(`
         <div class="sheet-head">
-          <div><p class="kicker">SHARE YOUR CONTACT</p><h2 id="sheetTitle">Nice to meet you!</h2></div>
+          <div><p class="kicker">${c.kicker}</p><h2 id="sheetTitle">${c.title}</h2></div>
           <button class="close" type="button" data-close aria-label="Close">×</button>
         </div>
-        <p class="desc">Send me the details you would like me to keep.</p>
+        <p class="desc">${c.desc}</p>
+        <div class="links">${body}</div>
+      `);
+    }
+
+    document.getElementById("connectButton").addEventListener("click",()=>{
+      openSheet(`
+        <div class="sheet-head">
+          <div><p class="kicker">CONNECT WITH ME</p><h2 id="sheetTitle">How do you know me?</h2></div>
+          <button class="close" type="button" data-close aria-label="Close">×</button>
+        </div>
+        <p class="desc">Choose the context that fits best.</p>
+        <div class="context-grid">
+          <button class="context-btn" data-category="business">💼 <span>Business</span></button>
+          <button class="context-btn" data-category="colleague">🏢 <span>Former colleague</span></button>
+          <button class="context-btn" data-category="radio">📡 <span>Amateur Radio</span></button>
+          <button class="context-btn" data-category="gaming">🎮 <span>Gaming</span></button>
+          <button class="context-btn" data-category="interests">🎯 <span>Shared interests</span></button>
+          <button class="context-btn" data-category="personal">🤝 <span>Personal</span></button>
+          <button class="context-btn" data-category="other">✉ <span>Other</span></button>
+        </div>
+      `);
+      content.querySelectorAll("[data-category]").forEach(b=>b.addEventListener("click",()=>openCategory(b.dataset.category)));
+    });
+
+    document.getElementById("shareButton").addEventListener("click",()=>{
+      openSheet(`
+        <div class="sheet-head">
+          <div><p class="kicker">SHARE YOUR DETAILS</p><h2 id="sheetTitle">Nice to meet you!</h2></div>
+          <button class="close" type="button" data-close aria-label="Close">×</button>
+        </div>
+        <p class="desc">Send me the contact details you would like me to keep.</p>
         <form id="shareForm">
           <label>Name *<input name="name" type="text" autocomplete="name" required></label>
           <label>Company / Organization<input name="company" type="text" autocomplete="organization"></label>
           <label>Email or messenger *<input name="contact" type="text" required></label>
-          <label>Context
+          <label>How do you know me?
             <select name="context">
-              <option>Business</option><option>Interests</option><option>Amateur Radio</option>
-              <option>Gaming</option><option>Personal</option><option>General</option>
+              <option>Business</option><option>Former colleague</option><option>Amateur Radio</option>
+              <option>Gaming</option><option>Shared interests</option><option>Personal</option><option>Other</option>
             </select>
           </label>
           <label>Message<textarea name="message"></textarea></label>
@@ -290,7 +278,7 @@
       document.getElementById("shareForm").addEventListener("submit",e=>{
         e.preventDefault();
         const d=new FormData(e.currentTarget);
-        const subject=`New contact — ${d.get("context")||"General"}`;
+        const subject=`New contact — ${d.get("context")||"Other"}`;
         const body=[
           `Name: ${d.get("name")||""}`,
           `Company / Organization: ${d.get("company")||""}`,
