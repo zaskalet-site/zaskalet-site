@@ -1,36 +1,17 @@
-ZASKALET PRIVATE DIGITAL CARD — READY TO UPLOAD
+ZASKALET TOPIC CONTACT CARDS
 
-PRIVATE URL:
-https://YOUR-DOMAIN/c/a7K9mQ2xR8vL4pZ6/
+Upload all contents to the GitHub repository root.
 
-UPLOAD INSTRUCTIONS:
-1. Open the ZIP file on your computer.
-2. Select ALL files and folders inside it.
-3. In GitHub, choose Add file → Upload files.
-4. Drag all selected files and folders into the upload window.
-5. Click Commit changes.
+QR URLs:
+- Business: https://zaskalet-site.github.io/business/
+- Amateur Radio: https://zaskalet-site.github.io/radio/
+- Gaming: https://zaskalet-site.github.io/gaming/
+- Personal: https://zaskalet-site.github.io/personal/
+- Former Colleague: https://zaskalet-site.github.io/former-colleague/
+- Shared Interests: https://zaskalet-site.github.io/shared/
 
-IMPORTANT:
-Do not upload the ZIP itself.
-Upload the CONTENTS of the ZIP.
+Each QR opens only its own themed contact page.
+Each page downloads its own separate VCF file.
+Business, radio, gaming and personal contacts do not overlap.
 
-Included:
-- index.html
-- robots.txt
-- _headers
-- _redirects
-- c/a7K9mQ2xR8vL4pZ6/index.html
-- c/a7K9mQ2xR8vL4pZ6/assets/style-v2.css
-- c/a7K9mQ2xR8vL4pZ6/assets/config-v2.js
-- c/a7K9mQ2xR8vL4pZ6/assets/app-v2.js
-
-
-VCF UPDATED — BUSINESS CONTACT ONLY
-
-The Save My Contact button now creates a vCard containing only:
-- Mikhail Zaskalet
-- m@zaskalet.com
-- Telegram
-- WhatsApp
-
-Gaming and amateur-radio emails are not included in the downloaded contact.
+Included ready QR PNG files are in the QR_CODES folder.
