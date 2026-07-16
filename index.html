@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#0b0d10">
+  <title>Mikhail Zaskalet</title>
+  <meta name="description" content="Private contact card for Mikhail Zaskalet.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="card" aria-labelledby="name">
+      <div class="mark" aria-hidden="true">M</div>
+      <p class="eyebrow">PRIVATE CONTACT CARD</p>
+      <h1 id="name">Mikhail Zaskalet</h1>
+      <p class="role">Founder</p>
+      <p class="intro">A fast, private way to stay in touch after we meet.</p>
+
+      <div id="contextBlock">
+        <h2>Where did we meet?</h2>
+        <div class="choices" role="group" aria-label="Where did we meet?">
+          <button data-context="games">🎮 Games of the Future</button>
+          <button data-context="radio">📻 Amateur Radio</button>
+          <button data-context="business">💼 Business</button>
+          <button data-context="colleague">🏢 Former colleague</button>
+          <button data-context="friends">🤝 Friends</button>
+          <button data-context="online">🌐 Online</button>
+          <button data-context="other">• Other</button>
+        </div>
+      </div>
+
+      <div id="connectBlock" class="hidden" aria-live="polite">
+        <p id="contextMessage" class="context-message"></p>
+        <div class="actions">
+          <a class="primary" href="mikhail-zaskalet.vcf" download>Save contact</a>
+          <button id="emailButton" class="secondary">Send a message</button>
+          <a class="secondary" href="https://zaskalet.com" rel="noopener">Open website</a>
+        </div>
+        <button id="changeContext" class="text-button">Change how we met</button>
+      </div>
+
+      <p class="privacy">No phone number, home address, family details, or live location are published here.</p>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

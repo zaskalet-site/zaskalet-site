@@ -1,0 +1,20 @@
+NFC SETUP — ZASKALET CONTACT CARD
+
+Recommended tag: NFC Forum Type 2 (NTAG213/215/216 or your compatible Ultralight tag).
+
+Write one URL record only:
+https://zaskalet.com
+
+In NFC Tools:
+1. Write
+2. Add a record
+3. URL / URI
+4. Enter https://zaskalet.com
+5. Write
+6. Test on both Android and iPhone
+7. Do NOT permanently lock the tag until after the Astana trip
+
+Placement:
+- Under a non-metal phone case is best.
+- Keep away from the phone's own NFC antenna and wireless charging coil.
+- If the phone blocks reading, use an anti-metal NFC tag or place it on a separate slim card.

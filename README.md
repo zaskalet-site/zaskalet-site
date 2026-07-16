@@ -1,16 +1,27 @@
-## Hi there 👋
+# Zaskalet Digital Contact Card
 
-<!--
-**zaskalet-site/zaskalet-site** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Privacy-first static contact page for Mikhail Zaskalet.
 
-Here are some ideas to get you started:
+## Deploy
+Upload these files to the root of the GitHub repository connected to Cloudflare Pages:
+- index.html
+- styles.css
+- script.js
+- mikhail-zaskalet.vcf
+- robots.txt
+- favicon.svg
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+Cloudflare Pages settings:
+- Framework preset: None
+- Build command: leave empty
+- Build output directory: /
+
+## NFC / QR target
+https://zaskalet.com
+
+## Privacy
+- No phone number
+- No home address
+- No family information
+- No live location
+- Search indexing disabled via meta robots and robots.txt
