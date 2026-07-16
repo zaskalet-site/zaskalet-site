@@ -9,7 +9,106 @@
   <title>Mikhail Zaskalet — Digital Contact Card</title>
   <meta name="description" content="Privacy-first digital contact card for Mikhail Zaskalet.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles-v6.css?v=6">
+  <style>
+    *{box-sizing:border-box}
+    :root{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color-scheme:dark;
+      --bg:#080a0d;--panel:rgba(17,20,25,.96);--panel2:#151a21;
+      --text:#f4f6f8;--muted:#9ba5b2;--line:rgba(255,255,255,.10)
+    }
+    html{background:var(--bg)}
+    body{
+      margin:0;min-height:100vh;color:var(--text);
+      background:
+        radial-gradient(circle at 14% 0%,#1b2635 0,transparent 39%),
+        radial-gradient(circle at 100% 100%,#141b24 0,transparent 38%),
+        var(--bg)
+    }
+    .shell{min-height:100vh;display:grid;place-items:center;padding:24px}
+    .card{
+      width:min(100%,600px);padding:38px;border:1px solid var(--line);border-radius:30px;
+      background:var(--panel);box-shadow:0 30px 95px rgba(0,0,0,.52)
+    }
+    .logo{
+      width:86px;height:86px;border-radius:24px;display:grid;place-items:center;
+      margin-bottom:32px;background:#f4f6f8;color:#0b0d10;font-size:32px;font-weight:950;letter-spacing:-.07em
+    }
+    .eyebrow,.kicker{margin:0 0 10px;color:var(--muted);font-size:12px;letter-spacing:.18em}
+    h1{margin:0;font-size:clamp(38px,8vw,58px);line-height:1.02;letter-spacing:-.047em}
+    .role{margin:12px 0 0;font-size:20px;font-weight:700;color:#e7ebef}
+    .intro{margin:34px 0 32px;color:#b3bcc7;font-size:17px;line-height:1.6}
+    h2{margin:0 0 15px;font-size:24px;letter-spacing:-.025em;color:#edf1f5}
+    button,a,input,textarea,select{font:inherit}
+
+    .primary-action,.secondary-action{
+      width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;
+      border-radius:16px;padding:17px 18px;text-decoration:none;transition:.18s ease;text-align:left
+    }
+    .primary-action{
+      background:#f4f6f8!important;color:#0b0d10!important;border:1px solid #f4f6f8!important
+    }
+    .secondary-action{
+      margin-top:10px;background:#151a21!important;color:#eef2f6!important;
+      border:1px solid var(--line)!important;cursor:pointer
+    }
+    .primary-action:hover,.secondary-action:hover{transform:translateY(-1px)}
+    .secondary-action:hover{background:#1b222c!important;border-color:rgba(255,255,255,.27)!important}
+    .primary-action strong,.secondary-action strong{display:block;font-size:16px;color:inherit}
+    .primary-action small,.secondary-action small{display:block;margin-top:4px;font-size:13px;color:inherit;opacity:.68;line-height:1.35}
+
+    .context-block{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+    .context-title{margin:0 0 14px;font-size:16px;color:#edf1f5}
+    .choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .choices button{
+      display:flex;gap:10px;align-items:center;padding:15px 16px;border:1px solid var(--line)!important;
+      border-radius:14px;background:#151a21!important;color:#edf1f5!important;cursor:pointer;text-align:left;transition:.18s ease
+    }
+    .choices button:hover{transform:translateY(-1px);background:#1b222c!important;border-color:rgba(255,255,255,.27)!important}
+
+    .section-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+    .back-button{
+      width:44px;height:44px;border-radius:50%;border:1px solid var(--line)!important;background:#151a21!important;
+      color:#eef2f6!important;cursor:pointer;font-size:21px
+    }
+    form{display:grid;gap:14px}
+    label{display:grid;gap:7px;color:#dfe5eb;font-size:14px}
+    input,textarea,select{
+      width:100%;border:1px solid var(--line);background:#0f1318;color:#f3f6f9;border-radius:12px;
+      padding:13px 14px;outline:none
+    }
+    input:focus,textarea:focus,select:focus{border-color:rgba(255,255,255,.35);box-shadow:0 0 0 3px rgba(255,255,255,.05)}
+    textarea{resize:vertical;min-height:105px}
+    .form-submit{
+      border:0!important;border-radius:14px;padding:15px 16px;background:#f4f6f8!important;
+      color:#0b0d10!important;font-weight:800;cursor:pointer
+    }
+    .form-note{margin:14px 0 0;color:#76808c;font-size:12px;line-height:1.5}
+    .context-message{margin:0 0 18px;color:#b8c1cc;font-size:16px;line-height:1.55}
+    .facts{display:grid;gap:8px;margin:0 0 14px}
+    .fact{
+      display:flex;justify-content:space-between;gap:20px;padding:13px 14px;border:1px solid var(--line);
+      border-radius:13px;background:#10141a
+    }
+    .fact span:first-child{color:#8993a0}.fact span:last-child{font-weight:700;text-align:right}
+    .contact-links{display:grid;gap:10px}
+    .contact-link{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 16px;
+      border:1px solid var(--line);border-radius:14px;background:#151a21;color:#edf1f5;text-decoration:none;transition:.18s ease
+    }
+    .contact-link:hover{transform:translateY(-1px);background:#1b222c;border-color:rgba(255,255,255,.27)}
+    .link-main{display:flex;align-items:center;gap:11px}.link-label{display:block;font-weight:700}
+    .link-note{display:block;color:#88929e;font-size:13px;margin-top:2px}
+    .empty-state{padding:16px;border:1px dashed rgba(255,255,255,.14);border-radius:14px;color:#8c96a2;line-height:1.5}
+    .privacy{margin:30px 0 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.07);color:#8c96a2;font-size:13px;line-height:1.55}
+    footer{margin-top:10px;color:#7c8692;font-size:12px}
+    .hidden{display:none!important}
+
+    @media(max-width:500px){
+      .card{padding:24px;border-radius:23px}.choices{grid-template-columns:1fr}h1{font-size:42px}
+      .logo{width:78px;height:78px;font-size:29px}.fact{align-items:flex-start;flex-direction:column;gap:4px}.fact span:last-child{text-align:left}
+    }
+  </style>
 </head>
 <body>
   <main class="shell">
@@ -19,105 +118,59 @@
         <p class="eyebrow">DIGITAL CONTACT CARD</p>
         <h1 id="name">Mikhail Zaskalet</h1>
         <p class="role">Technology Entrepreneur</p>
-        <p class="intro">AI systems, telecommunications solutions, and technology.</p>
+        <p class="intro">Building AI systems, telecommunications solutions and technology ventures.</p>
       </header>
 
       <section id="homeScreen">
-        <a class="primary-action" href="mikhail-zaskalet.vcf" download>
-          <span>
-            <strong>Save my contact</strong>
-            <small>Add my details to your phone</small>
-          </span>
+        <a class="primary-action" id="saveContactButton" href="mikhail-zaskalet.vcf" download>
+          <span><strong>Save Contact</strong><small>Add my details to your phone</small></span>
           <span aria-hidden="true">↓</span>
         </a>
 
-        <div class="divider"><span>or</span></div>
-
         <button id="shareButton" class="secondary-action" type="button">
-          <span>
-            <strong>Share your contact with me</strong>
-            <small>Send your details securely by email</small>
-          </span>
+          <span><strong>Share your contact with me</strong><small>Send your details securely by email</small></span>
           <span aria-hidden="true">→</span>
         </button>
 
-        <button id="connectButton" class="secondary-action" type="button">
-          <span>
-            <strong>Connect another way</strong>
-            <small>LinkedIn, messengers, radio, gaming and more</small>
-          </span>
-          <span aria-hidden="true">→</span>
-        </button>
+        <div class="context-block">
+          <p class="context-title">How do you know me?</p>
+          <div class="choices" role="group" aria-label="How do you know me?">
+            <button type="button" data-category="business">💼 <span>Business</span></button>
+            <button type="button" data-category="interests">🎯 <span>Interests</span></button>
+            <button type="button" data-category="radio">📡 <span>Amateur Radio</span></button>
+            <button type="button" data-category="gaming">🎮 <span>Gaming</span></button>
+            <button type="button" data-category="personal">🤝 <span>Personal</span></button>
+            <button type="button" data-category="other">✉ <span>Other</span></button>
+          </div>
+        </div>
       </section>
 
       <section id="shareScreen" class="hidden" aria-live="polite">
         <div class="section-heading">
-          <div>
-            <p class="kicker">SHARE YOUR CONTACT</p>
-            <h2>Nice to meet you!</h2>
-          </div>
+          <div><p class="kicker">SHARE YOUR CONTACT</p><h2>Nice to meet you!</h2></div>
           <button class="back-button" type="button" data-back aria-label="Back">←</button>
         </div>
 
         <form id="shareForm">
-          <label>
-            Name <span aria-hidden="true">*</span>
-            <input name="name" type="text" autocomplete="name" required>
-          </label>
-          <label>
-            Company / Organization
-            <input name="company" type="text" autocomplete="organization">
-          </label>
-          <label>
-            Email or messenger <span aria-hidden="true">*</span>
-            <input name="contact" type="text" required>
-          </label>
-          <label>
-            How do you know me?
+          <label>Name *<input name="name" type="text" autocomplete="name" required></label>
+          <label>Company / Organization<input name="company" type="text" autocomplete="organization"></label>
+          <label>Email or messenger *<input name="contact" type="text" required></label>
+          <label>How do you know me?
             <select name="context">
-              <option>Business</option>
-              <option>Interests</option>
-              <option>Amateur Radio</option>
-              <option>Gaming</option>
-              <option>Personal</option>
-              <option>Other</option>
+              <option>Business</option><option>Interests</option><option>Amateur Radio</option>
+              <option>Gaming</option><option>Personal</option><option>Other</option>
             </select>
           </label>
-          <label>
-            Message
-            <textarea name="message" rows="4"></textarea>
-          </label>
+          <label>Message<textarea name="message" rows="4"></textarea></label>
           <button class="form-submit" type="submit">Send</button>
         </form>
-
         <p class="form-note">The form opens your email app with a prepared message. Nothing is stored on this website.</p>
-      </section>
-
-      <section id="categoryScreen" class="hidden" aria-live="polite">
-        <div class="section-heading">
-          <div>
-            <p class="kicker">CONNECT ANOTHER WAY</p>
-            <h2>Choose a context</h2>
-          </div>
-          <button class="back-button" type="button" data-back aria-label="Back">←</button>
-        </div>
-        <div class="choices" role="group" aria-label="Choose a context">
-          <button type="button" data-category="business">💼 <span>Business</span></button>
-          <button type="button" data-category="interests">🎯 <span>Interests</span></button>
-          <button type="button" data-category="radio">📡 <span>Amateur Radio</span></button>
-          <button type="button" data-category="gaming">🎮 <span>Gaming</span></button>
-          <button type="button" data-category="personal">🤝 <span>Personal</span></button>
-          <button type="button" data-category="other">✉ <span>Other</span></button>
-        </div>
       </section>
 
       <section id="contactScreen" class="hidden" aria-live="polite">
         <div class="section-heading">
-          <div>
-            <p id="categoryKicker" class="kicker"></p>
-            <h2 id="categoryTitle">Connect</h2>
-          </div>
-          <button id="categoryBackButton" class="back-button" type="button" aria-label="Back">←</button>
+          <div><p id="categoryKicker" class="kicker"></p><h2 id="categoryTitle">Connect</h2></div>
+          <button class="back-button" type="button" data-back aria-label="Back">←</button>
         </div>
         <p id="categoryDescription" class="context-message"></p>
         <div id="identityFacts" class="facts hidden"></div>
@@ -129,7 +182,111 @@
     </section>
   </main>
 
-  <script src="contacts.js"></script>
-  <script src="script-v6.js?v=6"></script>
+  <script src="contacts-v7.js"></script>
+  <script>
+    const C = window.ZASKALET_CONTACTS || {};
+    const home = document.getElementById("homeScreen");
+    const share = document.getElementById("shareScreen");
+    const contact = document.getElementById("contactScreen");
+
+    function showScreen(name){
+      home.classList.toggle("hidden", name !== "home");
+      share.classList.toggle("hidden", name !== "share");
+      contact.classList.toggle("hidden", name !== "contact");
+      window.scrollTo({top:0,behavior:"smooth"});
+    }
+
+    document.getElementById("shareButton").addEventListener("click",()=>showScreen("share"));
+    document.querySelectorAll("[data-back]").forEach(b=>b.addEventListener("click",()=>showScreen("home")));
+
+    document.getElementById("shareForm").addEventListener("submit",event=>{
+      event.preventDefault();
+      const data=new FormData(event.currentTarget);
+      const subject=`New contact — ${data.get("context")||"Other"}`;
+      const body=[
+        `Name: ${data.get("name")||""}`,
+        `Company / Organization: ${data.get("company")||""}`,
+        `Email or messenger: ${data.get("contact")||""}`,
+        `Context: ${data.get("context")||""}`,
+        "",
+        "Message:",
+        `${data.get("message")||""}`
+      ].join("\n");
+      window.location.href=`mailto:${C.email||"m@zaskalet.com"}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+
+    const categories={
+      business:{kicker:"BUSINESS",title:"Professional contact",description:"For business, partnerships, projects, and professional conversations.",facts:[],links:[
+        {icon:"in",label:"LinkedIn",note:"Professional profile",href:C.linkedin},
+        {icon:"✉",label:"Email",note:C.email||"",href:C.email?`mailto:${C.email}`:""},
+        {icon:"◉",label:"WhatsApp",note:"Direct message",href:C.whatsapp}
+      ]},
+      interests:{kicker:"INTERESTS",title:"Shared interests",description:"For technology, AI, engineering, and other shared interests.",facts:[],links:[
+        {icon:"◈",label:"Discord",note:"Connect on Discord",href:C.discord},
+        {icon:"✉",label:"Email",note:C.email||"",href:C.email?`mailto:${C.email}`:""}
+      ]},
+      radio:{kicker:"AMATEUR RADIO",title:"On the air",description:"For amateur radio contacts and radio-related conversations.",facts:[{label:"Callsign",value:C.callsign}],links:[
+        {icon:"◉",label:"QRZ.com",note:C.callsign||"",href:C.qrz},
+        {icon:"✉",label:"Email",note:C.email||"",href:C.email?`mailto:${C.email}`:""}
+      ]},
+      gaming:{kicker:"GAMING",title:"Gaming contact",description:"For PUBG, esports, gaming communities, and related projects.",facts:[{label:"Nickname",value:C.gamingNickname}],links:[
+        {icon:"◈",label:"Discord",note:"Connect on Discord",href:C.discord},
+        {icon:"✉",label:"Email",note:C.email||"",href:C.email?`mailto:${C.email}`:""}
+      ]},
+      personal:{kicker:"PERSONAL",title:"Stay in touch",description:"For friends and personal connections.",facts:[],links:[
+        {icon:"◎",label:"Instagram",note:"Social profile",href:C.instagram},
+        {icon:"f",label:"Facebook",note:"Social profile",href:C.facebook},
+        {icon:"◉",label:"WhatsApp",note:"Direct message",href:C.whatsapp},
+        {icon:"➤",label:"Telegram",note:"@Mikhail_nnn",href:C.telegram}
+      ]},
+      other:{kicker:"OTHER",title:"Get in touch",description:"For anything that does not fit the categories above.",facts:[],links:[
+        {icon:"✉",label:"Email",note:C.email||"",href:C.email?`mailto:${C.email}`:""}
+      ]}
+    };
+
+    const kicker=document.getElementById("categoryKicker");
+    const title=document.getElementById("categoryTitle");
+    const description=document.getElementById("categoryDescription");
+    const facts=document.getElementById("identityFacts");
+    const links=document.getElementById("contactLinks");
+
+    function setLink(a,href){
+      a.href=href;
+      if(!href.startsWith("mailto:")){a.target="_blank";a.rel="noopener noreferrer"}
+    }
+
+    function openCategory(key){
+      const c=categories[key]; if(!c)return;
+      kicker.textContent=c.kicker; title.textContent=c.title; description.textContent=c.description;
+      facts.innerHTML="";
+      const vf=(c.facts||[]).filter(i=>i.value);
+      facts.classList.toggle("hidden",vf.length===0);
+      vf.forEach(i=>{
+        const row=document.createElement("div");
+        row.className="fact";
+        row.innerHTML=`<span>${i.label}</span><span>${i.value}</span>`;
+        facts.appendChild(row)
+      });
+      links.innerHTML="";
+      const vl=(c.links||[]).filter(i=>i.href);
+      if(vl.length===0){
+        const e=document.createElement("div");
+        e.className="empty-state";
+        e.textContent="Contact links for this section will be added shortly.";
+        links.appendChild(e)
+      }else{
+        vl.forEach(i=>{
+          const a=document.createElement("a");
+          a.className="contact-link";
+          setLink(a,i.href);
+          a.innerHTML=`<span class="link-main"><span>${i.icon}</span><span><span class="link-label">${i.label}</span><span class="link-note">${i.note||""}</span></span></span><span>↗</span>`;
+          links.appendChild(a)
+        })
+      }
+      showScreen("contact")
+    }
+
+    document.querySelectorAll("[data-category]").forEach(b=>b.addEventListener("click",()=>openCategory(b.dataset.category)));
+  </script>
 </body>
 </html>

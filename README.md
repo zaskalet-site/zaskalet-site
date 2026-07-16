@@ -1,8 +1,12 @@
-# Zaskalet Digital Contact Card v6
+# Zaskalet Digital Contact Card v7
 
-This version fixes stale CSS/browser caching by using new filenames:
-- styles-v6.css
-- script-v6.js
+Final simplified layout:
+- Save Contact
+- Share your contact with me
+- Direct context buttons on the first screen
+- Larger MZ monogram
+- Improved footer visibility
+- Polished description text
 
-Upload all extracted files to the repository root and commit.
-Old styles.css and script.js may remain, but the new index.html no longer uses them.
+Unknown social links remain hidden automatically.
+Edit only `contacts-v7.js` later to add actual links.
