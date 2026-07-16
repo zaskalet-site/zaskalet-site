@@ -14,279 +14,300 @@
     :root{
       font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       color-scheme:dark;
-      --bg:#080a0d;--panel:rgba(17,20,25,.96);--panel2:#151a21;
-      --text:#f4f6f8;--muted:#9ba5b2;--line:rgba(255,255,255,.10)
+      --bg:#080a0d;--panel:#111419;--panel2:#171c23;--text:#f5f7f9;
+      --muted:#9ba5b2;--line:rgba(255,255,255,.10);--accent:#f5f7f9
     }
     html{background:var(--bg)}
     body{
       margin:0;min-height:100vh;color:var(--text);
       background:
-        radial-gradient(circle at 14% 0%,#1b2635 0,transparent 39%),
-        radial-gradient(circle at 100% 100%,#141b24 0,transparent 38%),
+        radial-gradient(circle at 10% 0%,#1c2939 0,transparent 40%),
+        radial-gradient(circle at 100% 100%,#151c25 0,transparent 40%),
         var(--bg)
     }
+    body.modal-open{overflow:hidden}
     .shell{min-height:100vh;display:grid;place-items:center;padding:24px}
     .card{
-      width:min(100%,600px);padding:38px;border:1px solid var(--line);border-radius:30px;
-      background:var(--panel);box-shadow:0 30px 95px rgba(0,0,0,.52)
+      width:min(100%,610px);padding:38px;border:1px solid var(--line);border-radius:30px;
+      background:rgba(17,20,25,.97);box-shadow:0 30px 100px rgba(0,0,0,.55)
     }
     .logo{
-      width:86px;height:86px;border-radius:24px;display:grid;place-items:center;
-      margin-bottom:32px;background:#f4f6f8;color:#0b0d10;font-size:32px;font-weight:950;letter-spacing:-.07em
+      width:88px;height:88px;border-radius:25px;display:grid;place-items:center;
+      margin-bottom:32px;background:#f5f7f9;color:#0b0d10;font-size:32px;font-weight:950;letter-spacing:-.075em
     }
-    .eyebrow,.kicker{margin:0 0 10px;color:var(--muted);font-size:12px;letter-spacing:.18em}
-    h1{margin:0;font-size:clamp(38px,8vw,58px);line-height:1.02;letter-spacing:-.047em}
-    .role{margin:12px 0 0;font-size:20px;font-weight:700;color:#e7ebef}
-    .intro{margin:34px 0 32px;color:#b3bcc7;font-size:17px;line-height:1.6}
-    h2{margin:0 0 15px;font-size:24px;letter-spacing:-.025em;color:#edf1f5}
+    .eyebrow{margin:0 0 10px;color:#a3adba;font-size:12px;letter-spacing:.18em}
+    h1{margin:0;font-size:clamp(40px,8vw,60px);line-height:1.01;letter-spacing:-.05em}
+    .role{margin:12px 0 0;font-size:20px;font-weight:720;color:#e9edf1}
+    .intro{margin:32px 0;color:#b5bec9;font-size:17px;line-height:1.6}
     button,a,input,textarea,select{font:inherit}
 
-    .primary-action,.secondary-action{
+    .action{
       width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;
-      border-radius:16px;padding:17px 18px;text-decoration:none;transition:.18s ease;text-align:left
+      border-radius:16px;padding:17px 18px;text-decoration:none;text-align:left;transition:.16s ease
     }
-    .primary-action{
-      background:#f4f6f8!important;color:#0b0d10!important;border:1px solid #f4f6f8!important
-    }
-    .secondary-action{
-      margin-top:10px;background:#151a21!important;color:#eef2f6!important;
-      border:1px solid var(--line)!important;cursor:pointer
-    }
-    .primary-action:hover,.secondary-action:hover{transform:translateY(-1px)}
-    .secondary-action:hover{background:#1b222c!important;border-color:rgba(255,255,255,.27)!important}
-    .primary-action strong,.secondary-action strong{display:block;font-size:16px;color:inherit}
-    .primary-action small,.secondary-action small{display:block;margin-top:4px;font-size:13px;color:inherit;opacity:.68;line-height:1.35}
+    .action:hover{transform:translateY(-1px)}
+    .action.primary{background:#f5f7f9;color:#0b0d10;border:1px solid #f5f7f9}
+    .action.secondary{margin-top:10px;background:#171c23;color:#eef2f6;border:1px solid var(--line);cursor:pointer}
+    .action.secondary:hover{background:#1c232d;border-color:rgba(255,255,255,.26)}
+    .action strong{display:block;font-size:16px}.action small{display:block;margin-top:4px;font-size:13px;opacity:.68;line-height:1.35}
 
-    .context-block{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
-    .context-title{margin:0 0 14px;font-size:16px;color:#edf1f5}
-    .choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .choices button{
-      display:flex;gap:10px;align-items:center;padding:15px 16px;border:1px solid var(--line)!important;
-      border-radius:14px;background:#151a21!important;color:#edf1f5!important;cursor:pointer;text-align:left;transition:.18s ease
+    .connect{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+    .connect h2{margin:0 0 6px;font-size:17px}
+    .connect p{margin:0 0 15px;color:#8993a0;font-size:13px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .tile{
+      display:flex;align-items:center;gap:10px;padding:15px 16px;border:1px solid var(--line);
+      border-radius:14px;background:#171c23;color:#eef2f6;cursor:pointer;text-align:left;transition:.16s ease
     }
-    .choices button:hover{transform:translateY(-1px);background:#1b222c!important;border-color:rgba(255,255,255,.27)!important}
+    .tile:hover{transform:translateY(-1px);background:#1c232d;border-color:rgba(255,255,255,.26)}
 
-    .section-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
-    .back-button{
-      width:44px;height:44px;border-radius:50%;border:1px solid var(--line)!important;background:#151a21!important;
-      color:#eef2f6!important;cursor:pointer;font-size:21px
+    .privacy{margin:30px 0 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.07);color:#8d97a4;font-size:13px;line-height:1.55}
+    footer{margin-top:10px;color:#858f9b;font-size:12px}
+
+    .backdrop{
+      position:fixed;inset:0;display:none;align-items:flex-end;justify-content:center;padding:16px;
+      background:rgba(0,0,0,.58);backdrop-filter:blur(7px);z-index:20
     }
+    .backdrop.open{display:flex}
+    .sheet{
+      width:min(100%,610px);max-height:min(82vh,760px);overflow:auto;padding:22px;border-radius:26px 26px 22px 22px;
+      background:#12161c;border:1px solid rgba(255,255,255,.12);box-shadow:0 28px 90px rgba(0,0,0,.62);
+      transform:translateY(18px);opacity:0;animation:rise .18s ease forwards
+    }
+    @keyframes rise{to{transform:translateY(0);opacity:1}}
+    .grabber{width:44px;height:4px;border-radius:99px;background:#48515d;margin:0 auto 18px}
+    .sheet-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+    .kicker{margin:0 0 8px;color:#9ca6b3;font-size:11px;letter-spacing:.17em}
+    .sheet h2{margin:0;font-size:26px;letter-spacing:-.03em}
+    .sheet .desc{margin:12px 0 18px;color:#aeb7c2;line-height:1.55}
+    .close{
+      width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:#1a2028;color:#eef2f6;cursor:pointer
+    }
+    .links{display:grid;gap:10px}
+    .link{
+      display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 16px;
+      border:1px solid var(--line);border-radius:14px;background:#181e26;color:#eef2f6;text-decoration:none
+    }
+    .link:hover{background:#1d252f;border-color:rgba(255,255,255,.26)}
+    .link-main{display:flex;align-items:center;gap:11px}.label{display:block;font-weight:720}.note{display:block;color:#8d97a4;font-size:13px;margin-top:2px}
+    .fact{display:flex;justify-content:space-between;gap:15px;padding:14px 15px;margin-bottom:10px;border-radius:14px;border:1px solid var(--line);background:#10141a}
+    .fact span:first-child{color:#8d97a4}.fact span:last-child{font-weight:720}
+    .empty{padding:16px;border:1px dashed rgba(255,255,255,.15);border-radius:14px;color:#909aa6}
+
     form{display:grid;gap:14px}
-    label{display:grid;gap:7px;color:#dfe5eb;font-size:14px}
+    label{display:grid;gap:7px;color:#dde3e9;font-size:14px}
     input,textarea,select{
       width:100%;border:1px solid var(--line);background:#0f1318;color:#f3f6f9;border-radius:12px;
       padding:13px 14px;outline:none
     }
     input:focus,textarea:focus,select:focus{border-color:rgba(255,255,255,.35);box-shadow:0 0 0 3px rgba(255,255,255,.05)}
-    textarea{resize:vertical;min-height:105px}
-    .form-submit{
-      border:0!important;border-radius:14px;padding:15px 16px;background:#f4f6f8!important;
-      color:#0b0d10!important;font-weight:800;cursor:pointer
+    textarea{resize:vertical;min-height:100px}
+    .submit{border:0;border-radius:14px;padding:15px 16px;background:#f5f7f9;color:#0b0d10;font-weight:800;cursor:pointer}
+    .form-note{margin:12px 0 0;color:#7f8995;font-size:12px;line-height:1.5}
+
+    .toast{
+      position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;
+      background:#f5f7f9;color:#0b0d10;padding:12px 16px;border-radius:999px;font-weight:750;
+      box-shadow:0 12px 40px rgba(0,0,0,.4);z-index:40;pointer-events:none;transition:.2s ease
     }
-    .form-note{margin:14px 0 0;color:#76808c;font-size:12px;line-height:1.5}
-    .context-message{margin:0 0 18px;color:#b8c1cc;font-size:16px;line-height:1.55}
-    .facts{display:grid;gap:8px;margin:0 0 14px}
-    .fact{
-      display:flex;justify-content:space-between;gap:20px;padding:13px 14px;border:1px solid var(--line);
-      border-radius:13px;background:#10141a
-    }
-    .fact span:first-child{color:#8993a0}.fact span:last-child{font-weight:700;text-align:right}
-    .contact-links{display:grid;gap:10px}
-    .contact-link{
-      display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 16px;
-      border:1px solid var(--line);border-radius:14px;background:#151a21;color:#edf1f5;text-decoration:none;transition:.18s ease
-    }
-    .contact-link:hover{transform:translateY(-1px);background:#1b222c;border-color:rgba(255,255,255,.27)}
-    .link-main{display:flex;align-items:center;gap:11px}.link-label{display:block;font-weight:700}
-    .link-note{display:block;color:#88929e;font-size:13px;margin-top:2px}
-    .empty-state{padding:16px;border:1px dashed rgba(255,255,255,.14);border-radius:14px;color:#8c96a2;line-height:1.5}
-    .privacy{margin:30px 0 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.07);color:#8c96a2;font-size:13px;line-height:1.55}
-    footer{margin-top:10px;color:#7c8692;font-size:12px}
-    .hidden{display:none!important}
+    .toast.show{transform:translate(-50%,0);opacity:1}
 
     @media(max-width:500px){
-      .card{padding:24px;border-radius:23px}.choices{grid-template-columns:1fr}h1{font-size:42px}
-      .logo{width:78px;height:78px;font-size:29px}.fact{align-items:flex-start;flex-direction:column;gap:4px}.fact span:last-child{text-align:left}
+      .card{padding:24px;border-radius:23px}.grid{grid-template-columns:1fr}h1{font-size:43px}
+      .logo{width:78px;height:78px;font-size:29px}.sheet{padding:20px}
     }
   </style>
 </head>
 <body>
   <main class="shell">
-    <section class="card" aria-labelledby="name">
-      <header>
-        <div class="logo" aria-hidden="true">MZ</div>
-        <p class="eyebrow">DIGITAL CONTACT CARD</p>
-        <h1 id="name">Mikhail Zaskalet</h1>
-        <p class="role">Technology Entrepreneur</p>
-        <p class="intro">Building AI systems, telecommunications solutions and technology ventures.</p>
-      </header>
+    <section class="card">
+      <div class="logo" aria-hidden="true">MZ</div>
+      <p class="eyebrow">DIGITAL CONTACT CARD</p>
+      <h1>Mikhail Zaskalet</h1>
+      <p class="role">Technology Entrepreneur</p>
+      <p class="intro">AI systems, telecommunications solutions, and technology ventures.</p>
 
-      <section id="homeScreen">
-        <a class="primary-action" id="saveContactButton" href="mikhail-zaskalet.vcf" download>
-          <span><strong>Save Contact</strong><small>Add my details to your phone</small></span>
-          <span aria-hidden="true">↓</span>
-        </a>
+      <a id="saveContact" class="action primary" href="mikhail-zaskalet.vcf" download>
+        <span><strong>Save Contact</strong><small>Add me to your contacts</small></span>
+        <span aria-hidden="true">↓</span>
+      </a>
 
-        <button id="shareButton" class="secondary-action" type="button">
-          <span><strong>Share your contact with me</strong><small>Send your details securely by email</small></span>
-          <span aria-hidden="true">→</span>
-        </button>
+      <button id="shareContact" class="action secondary" type="button">
+        <span><strong>Share your contact</strong><small>Send me your details securely</small></span>
+        <span aria-hidden="true">→</span>
+      </button>
 
-        <div class="context-block">
-          <p class="context-title">How do you know me?</p>
-          <div class="choices" role="group" aria-label="How do you know me?">
-            <button type="button" data-category="business">💼 <span>Business</span></button>
-            <button type="button" data-category="interests">🎯 <span>Interests</span></button>
-            <button type="button" data-category="radio">📡 <span>Amateur Radio</span></button>
-            <button type="button" data-category="gaming">🎮 <span>Gaming</span></button>
-            <button type="button" data-category="personal">🤝 <span>Personal</span></button>
-            <button type="button" data-category="other">✉ <span>Other</span></button>
-          </div>
+      <section class="connect">
+        <h2>Choose how you'd like to connect</h2>
+        <p>Select the context that fits best.</p>
+        <div class="grid">
+          <button class="tile" data-category="business" type="button">💼 <span>Business</span></button>
+          <button class="tile" data-category="interests" type="button">🎯 <span>Interests</span></button>
+          <button class="tile" data-category="radio" type="button">📡 <span>Amateur Radio</span></button>
+          <button class="tile" data-category="gaming" type="button">🎮 <span>Gaming</span></button>
+          <button class="tile" data-category="personal" type="button">🤝 <span>Personal</span></button>
+          <button class="tile" data-category="general" type="button">✉ <span>General</span></button>
         </div>
       </section>
 
-      <section id="shareScreen" class="hidden" aria-live="polite">
-        <div class="section-heading">
-          <div><p class="kicker">SHARE YOUR CONTACT</p><h2>Nice to meet you!</h2></div>
-          <button class="back-button" type="button" data-back aria-label="Back">←</button>
-        </div>
-
-        <form id="shareForm">
-          <label>Name *<input name="name" type="text" autocomplete="name" required></label>
-          <label>Company / Organization<input name="company" type="text" autocomplete="organization"></label>
-          <label>Email or messenger *<input name="contact" type="text" required></label>
-          <label>How do you know me?
-            <select name="context">
-              <option>Business</option><option>Interests</option><option>Amateur Radio</option>
-              <option>Gaming</option><option>Personal</option><option>Other</option>
-            </select>
-          </label>
-          <label>Message<textarea name="message" rows="4"></textarea></label>
-          <button class="form-submit" type="submit">Send</button>
-        </form>
-        <p class="form-note">The form opens your email app with a prepared message. Nothing is stored on this website.</p>
-      </section>
-
-      <section id="contactScreen" class="hidden" aria-live="polite">
-        <div class="section-heading">
-          <div><p id="categoryKicker" class="kicker"></p><h2 id="categoryTitle">Connect</h2></div>
-          <button class="back-button" type="button" data-back aria-label="Back">←</button>
-        </div>
-        <p id="categoryDescription" class="context-message"></p>
-        <div id="identityFacts" class="facts hidden"></div>
-        <div id="contactLinks" class="contact-links"></div>
-      </section>
-
-      <p class="privacy">Personal contact information is shared after we connect.</p>
+      <p class="privacy">Personal contact details are available after we connect.</p>
       <footer>© 2026 Mikhail Zaskalet</footer>
     </section>
   </main>
 
-  <script src="contacts-v7.js"></script>
+  <div id="backdrop" class="backdrop" aria-hidden="true">
+    <section id="sheet" class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+      <div class="grabber"></div>
+      <div id="sheetContent"></div>
+    </section>
+  </div>
+
+  <div id="toast" class="toast">Contact card opened</div>
+
+  <script src="contacts-v8.js"></script>
   <script>
     const C = window.ZASKALET_CONTACTS || {};
-    const home = document.getElementById("homeScreen");
-    const share = document.getElementById("shareScreen");
-    const contact = document.getElementById("contactScreen");
+    const backdrop = document.getElementById("backdrop");
+    const content = document.getElementById("sheetContent");
+    const toast = document.getElementById("toast");
 
-    function showScreen(name){
-      home.classList.toggle("hidden", name !== "home");
-      share.classList.toggle("hidden", name !== "share");
-      contact.classList.toggle("hidden", name !== "contact");
-      window.scrollTo({top:0,behavior:"smooth"});
+    function openSheet(html){
+      content.innerHTML = html;
+      backdrop.classList.add("open");
+      backdrop.setAttribute("aria-hidden","false");
+      document.body.classList.add("modal-open");
+      content.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",closeSheet));
+    }
+    function closeSheet(){
+      backdrop.classList.remove("open");
+      backdrop.setAttribute("aria-hidden","true");
+      document.body.classList.remove("modal-open");
+    }
+    backdrop.addEventListener("click",e=>{if(e.target===backdrop)closeSheet()});
+    document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSheet()});
+
+    function ext(href){return href && !href.startsWith("mailto:") ? ' target="_blank" rel="noopener noreferrer"' : ""}
+    function link(icon,label,note,href){
+      if(!href)return "";
+      return `<a class="link" href="${href}"${ext(href)}><span class="link-main"><span>${icon}</span><span><span class="label">${label}</span><span class="note">${note||""}</span></span></span><span>↗</span></a>`;
+    }
+    function fact(label,value){
+      if(!value)return "";
+      return `<div class="fact"><span>${label}</span><span>${value}</span></div>`;
     }
 
-    document.getElementById("shareButton").addEventListener("click",()=>showScreen("share"));
-    document.querySelectorAll("[data-back]").forEach(b=>b.addEventListener("click",()=>showScreen("home")));
-
-    document.getElementById("shareForm").addEventListener("submit",event=>{
-      event.preventDefault();
-      const data=new FormData(event.currentTarget);
-      const subject=`New contact — ${data.get("context")||"Other"}`;
-      const body=[
-        `Name: ${data.get("name")||""}`,
-        `Company / Organization: ${data.get("company")||""}`,
-        `Email or messenger: ${data.get("contact")||""}`,
-        `Context: ${data.get("context")||""}`,
-        "",
-        "Message:",
-        `${data.get("message")||""}`
-      ].join("\n");
-      window.location.href=`mailto:${C.email||"m@zaskalet.com"}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    });
-
-    const categories={
-      business:{kicker:"BUSINESS",title:"Professional contact",description:"For business, partnerships, projects, and professional conversations.",facts:[],links:[
-        {icon:"in",label:"LinkedIn",note:"Professional profile",href:C.linkedin},
-        {icon:"✉",label:"Email",note:C.email||"",href:C.email?`mailto:${C.email}`:""},
-        {icon:"◉",label:"WhatsApp",note:"Direct message",href:C.whatsapp}
-      ]},
-      interests:{kicker:"INTERESTS",title:"Shared interests",description:"For technology, AI, engineering, and other shared interests.",facts:[],links:[
-        {icon:"◈",label:"Discord",note:"Connect on Discord",href:C.discord},
-        {icon:"✉",label:"Email",note:C.email||"",href:C.email?`mailto:${C.email}`:""}
-      ]},
-      radio:{kicker:"AMATEUR RADIO",title:"On the air",description:"For amateur radio contacts and radio-related conversations.",facts:[{label:"Callsign",value:C.callsign}],links:[
-        {icon:"◉",label:"QRZ.com",note:C.callsign||"",href:C.qrz},
-        {icon:"✉",label:"Email",note:C.email||"",href:C.email?`mailto:${C.email}`:""}
-      ]},
-      gaming:{kicker:"GAMING",title:"Gaming contact",description:"For PUBG, esports, gaming communities, and related projects.",facts:[{label:"Nickname",value:C.gamingNickname}],links:[
-        {icon:"◈",label:"Discord",note:"Connect on Discord",href:C.discord},
-        {icon:"✉",label:"Email",note:C.email||"",href:C.email?`mailto:${C.email}`:""}
-      ]},
-      personal:{kicker:"PERSONAL",title:"Stay in touch",description:"For friends and personal connections.",facts:[],links:[
-        {icon:"◎",label:"Instagram",note:"Social profile",href:C.instagram},
-        {icon:"f",label:"Facebook",note:"Social profile",href:C.facebook},
-        {icon:"◉",label:"WhatsApp",note:"Direct message",href:C.whatsapp},
-        {icon:"➤",label:"Telegram",note:"@Mikhail_nnn",href:C.telegram}
-      ]},
-      other:{kicker:"OTHER",title:"Get in touch",description:"For anything that does not fit the categories above.",facts:[],links:[
-        {icon:"✉",label:"Email",note:C.email||"",href:C.email?`mailto:${C.email}`:""}
-      ]}
+    const categories = {
+      business:{
+        kicker:"BUSINESS",title:"Professional contact",
+        desc:"For projects, partnerships, investment, and professional conversations.",
+        body:()=>[
+          link("in","LinkedIn","Professional profile",C.linkedin),
+          link("✉","Email",C.email||"",C.email?`mailto:${C.email}`:""),
+          link("◉","WhatsApp","Direct message",C.whatsapp)
+        ].join("")
+      },
+      interests:{
+        kicker:"INTERESTS",title:"Shared interests",
+        desc:"For technology, AI, engineering, and other shared interests.",
+        body:()=>[
+          link("◈","Discord","Connect on Discord",C.discord),
+          link("➤","Telegram","@Mikhail_nnn",C.telegram),
+          link("✉","Email",C.email||"",C.email?`mailto:${C.email}`:"")
+        ].join("")
+      },
+      radio:{
+        kicker:"AMATEUR RADIO",title:"On the air",
+        desc:"For amateur radio contacts and radio-related conversations.",
+        body:()=>[
+          fact("Callsign",C.callsign),
+          link("◉","QRZ.com",C.callsign||"",C.qrz),
+          link("✉","Email",C.email||"",C.email?`mailto:${C.email}`:"")
+        ].join("")
+      },
+      gaming:{
+        kicker:"GAMING",title:"Gaming contact",
+        desc:"For PUBG, esports, gaming communities, and related projects.",
+        body:()=>[
+          fact("Nickname",C.gamingNickname),
+          link("◈","Discord","Connect on Discord",C.discord),
+          link("✉","Email",C.email||"",C.email?`mailto:${C.email}`:"")
+        ].join("")
+      },
+      personal:{
+        kicker:"PERSONAL",title:"Stay in touch",
+        desc:"For friends and personal connections.",
+        body:()=>[
+          link("➤","Telegram","@Mikhail_nnn",C.telegram),
+          link("◉","WhatsApp","Direct message",C.whatsapp),
+          link("◎","Instagram","Social profile",C.instagram),
+          link("f","Facebook","Social profile",C.facebook)
+        ].join("")
+      },
+      general:{
+        kicker:"GENERAL",title:"Get in touch",
+        desc:"For anything that does not fit the categories above.",
+        body:()=>link("✉","Email",C.email||"",C.email?`mailto:${C.email}`:"")
+      }
     };
 
-    const kicker=document.getElementById("categoryKicker");
-    const title=document.getElementById("categoryTitle");
-    const description=document.getElementById("categoryDescription");
-    const facts=document.getElementById("identityFacts");
-    const links=document.getElementById("contactLinks");
-
-    function setLink(a,href){
-      a.href=href;
-      if(!href.startsWith("mailto:")){a.target="_blank";a.rel="noopener noreferrer"}
-    }
-
-    function openCategory(key){
-      const c=categories[key]; if(!c)return;
-      kicker.textContent=c.kicker; title.textContent=c.title; description.textContent=c.description;
-      facts.innerHTML="";
-      const vf=(c.facts||[]).filter(i=>i.value);
-      facts.classList.toggle("hidden",vf.length===0);
-      vf.forEach(i=>{
-        const row=document.createElement("div");
-        row.className="fact";
-        row.innerHTML=`<span>${i.label}</span><span>${i.value}</span>`;
-        facts.appendChild(row)
+    document.querySelectorAll("[data-category]").forEach(btn=>{
+      btn.addEventListener("click",()=>{
+        const c=categories[btn.dataset.category];
+        const body=c.body() || `<div class="empty">Contact links for this section will be added shortly.</div>`;
+        openSheet(`
+          <div class="sheet-head">
+            <div><p class="kicker">${c.kicker}</p><h2 id="sheetTitle">${c.title}</h2></div>
+            <button class="close" type="button" data-close aria-label="Close">×</button>
+          </div>
+          <p class="desc">${c.desc}</p>
+          <div class="links">${body}</div>
+        `);
       });
-      links.innerHTML="";
-      const vl=(c.links||[]).filter(i=>i.href);
-      if(vl.length===0){
-        const e=document.createElement("div");
-        e.className="empty-state";
-        e.textContent="Contact links for this section will be added shortly.";
-        links.appendChild(e)
-      }else{
-        vl.forEach(i=>{
-          const a=document.createElement("a");
-          a.className="contact-link";
-          setLink(a,i.href);
-          a.innerHTML=`<span class="link-main"><span>${i.icon}</span><span><span class="link-label">${i.label}</span><span class="link-note">${i.note||""}</span></span></span><span>↗</span>`;
-          links.appendChild(a)
-        })
-      }
-      showScreen("contact")
-    }
+    });
 
-    document.querySelectorAll("[data-category]").forEach(b=>b.addEventListener("click",()=>openCategory(b.dataset.category)));
+    document.getElementById("shareContact").addEventListener("click",()=>{
+      openSheet(`
+        <div class="sheet-head">
+          <div><p class="kicker">SHARE YOUR CONTACT</p><h2 id="sheetTitle">Nice to meet you!</h2></div>
+          <button class="close" type="button" data-close aria-label="Close">×</button>
+        </div>
+        <p class="desc">Send me the details you would like me to keep.</p>
+        <form id="shareForm">
+          <label>Name *<input name="name" type="text" autocomplete="name" required></label>
+          <label>Company / Organization<input name="company" type="text" autocomplete="organization"></label>
+          <label>Email or messenger *<input name="contact" type="text" required></label>
+          <label>Context
+            <select name="context">
+              <option>Business</option><option>Interests</option><option>Amateur Radio</option>
+              <option>Gaming</option><option>Personal</option><option>General</option>
+            </select>
+          </label>
+          <label>Message<textarea name="message"></textarea></label>
+          <button class="submit" type="submit">Send</button>
+        </form>
+        <p class="form-note">Your email app will open with a prepared message. Nothing is stored on this website.</p>
+      `);
+      document.getElementById("shareForm").addEventListener("submit",e=>{
+        e.preventDefault();
+        const d=new FormData(e.currentTarget);
+        const subject=`New contact — ${d.get("context")||"General"}`;
+        const body=[
+          `Name: ${d.get("name")||""}`,
+          `Company / Organization: ${d.get("company")||""}`,
+          `Email or messenger: ${d.get("contact")||""}`,
+          `Context: ${d.get("context")||""}`,
+          "",
+          "Message:",
+          `${d.get("message")||""}`
+        ].join("\n");
+        window.location.href=`mailto:${C.email||"m@zaskalet.com"}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      });
+    });
+
+    document.getElementById("saveContact").addEventListener("click",()=>{
+      toast.classList.add("show");
+      setTimeout(()=>toast.classList.remove("show"),1800);
+    });
   </script>
 </body>
 </html>
