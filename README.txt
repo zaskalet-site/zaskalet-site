@@ -24,3 +24,51 @@ Cloudflare Pages / Netlify:
 Footer:
 - The old sentence was removed completely.
 - Only the separator and © 2026 Mikhail Zaskalet remain.
+
+
+CONTACT ROUTING INCLUDED
+
+Business:
+- LinkedIn
+- WhatsApp
+- Telegram
+- Facebook
+- Instagram
+
+Former colleague:
+- LinkedIn
+- WhatsApp
+- Facebook
+- Instagram
+- Telegram
+
+Amateur Radio:
+- Callsign 5B4ALJ
+- 5b4alj@gmail.com
+- WhatsApp
+- Telegram
+
+Gaming:
+- Discord Bogdan2K
+- bogdan2kmail@gmail.com
+- Instagram
+- Telegram
+
+Shared interests:
+- Instagram
+- Facebook
+- LinkedIn
+- WhatsApp
+- Telegram
+
+Personal:
+- WhatsApp
+- Telegram
+- Instagram
+- Facebook
+
+Other:
+- All available contact methods
+
+Telegram was taken from the supplied QR image:
+@MIKHAIL_NNN
