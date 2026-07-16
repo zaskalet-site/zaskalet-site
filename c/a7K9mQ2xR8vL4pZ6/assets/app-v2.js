@@ -21,20 +21,16 @@
 
   const makeVCard = () => {
     const lines = [
-      "BEGIN:VCARD","VERSION:3.0",
+      "BEGIN:VCARD",
+      "VERSION:3.0",
       "FN:Mikhail Zaskalet",
       "N:Zaskalet;Mikhail;;;",
-      "TITLE:Technology Entrepreneur",
-      `EMAIL;TYPE=INTERNET:${cfg.gamingEmail}`,
-      `EMAIL;TYPE=INTERNET:${cfg.amateurRadioEmail}`,
-      `URL;TYPE=LinkedIn:${cfg.linkedin}`,
-      `URL;TYPE=Facebook:${cfg.facebook}`,
-      `URL;TYPE=Instagram:${cfg.instagram}`,
-      `URL;TYPE=WhatsApp:${cfg.whatsapp}`,
+      "EMAIL;TYPE=INTERNET,WORK:m@zaskalet.com",
       `URL;TYPE=Telegram:${cfg.telegram}`,
-      `NOTE:Amateur Radio callsign: ${cfg.amateurRadioCallsign}; Discord: ${cfg.discordUsername}`,
+      `URL;TYPE=WhatsApp:${cfg.whatsapp}`,
       "END:VCARD"
-    ].filter(Boolean).join("\r\n");
+    ].filter(Boolean).join("
+");
 
     const blob = new Blob([lines], {type:"text/vcard;charset=utf-8"});
     const a = document.createElement("a");

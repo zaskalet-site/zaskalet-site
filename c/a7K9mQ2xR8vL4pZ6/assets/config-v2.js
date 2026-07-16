@@ -12,5 +12,6 @@ window.CARD_CONFIG = {
   amateurRadioEmail: "5b4alj@gmail.com",
   amateurRadioCallsign: "5B4ALJ",
   discordUsername: "Bogdan2K",
-  shareDetailsRecipient: "bogdan2kmail@gmail.com"
+  businessEmail: "m@zaskalet.com",
+  shareDetailsRecipient: "m@zaskalet.com"
 };

@@ -23,3 +23,14 @@ Included:
 - c/a7K9mQ2xR8vL4pZ6/assets/style-v2.css
 - c/a7K9mQ2xR8vL4pZ6/assets/config-v2.js
 - c/a7K9mQ2xR8vL4pZ6/assets/app-v2.js
+
+
+VCF UPDATED — BUSINESS CONTACT ONLY
+
+The Save My Contact button now creates a vCard containing only:
+- Mikhail Zaskalet
+- m@zaskalet.com
+- Telegram
+- WhatsApp
+
+Gaming and amateur-radio emails are not included in the downloaded contact.
