@@ -1,26 +1,89 @@
 *{box-sizing:border-box}
-:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color-scheme:dark}
-body{margin:0;min-height:100vh;background:
-radial-gradient(circle at top,#1a2029 0,#0b0d10 42%,#070809 100%);color:#f4f6f8}
+:root{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+html{background:#070809}
+body{
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 20% 0%,#1a2330 0,transparent 38%),
+    radial-gradient(circle at 100% 100%,#151a21 0,transparent 36%),
+    #070809;
+  color:#f4f6f8;
+}
 .shell{min-height:100vh;display:grid;place-items:center;padding:24px}
-.card{width:min(100%,520px);background:rgba(17,20,25,.9);border:1px solid rgba(255,255,255,.09);border-radius:28px;padding:32px;box-shadow:0 24px 80px rgba(0,0,0,.45);backdrop-filter:blur(16px)}
-.mark{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:#f4f6f8;color:#0b0d10;font-weight:800;font-size:24px;margin-bottom:28px}
+.card{
+  width:min(100%,560px);
+  background:rgba(16,19,24,.92);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:28px;
+  padding:34px;
+  box-shadow:0 28px 90px rgba(0,0,0,.48);
+  backdrop-filter:blur(18px);
+}
+.logo{
+  width:58px;height:58px;border-radius:17px;
+  display:grid;place-items:center;
+  background:#f4f6f8;color:#0b0d10;
+  font-weight:850;font-size:21px;letter-spacing:-.04em;
+  margin-bottom:28px;
+}
 .eyebrow{font-size:12px;letter-spacing:.18em;color:#9aa4b2;margin:0 0 10px}
-h1{font-size:clamp(34px,8vw,54px);line-height:1.02;margin:0;letter-spacing:-.04em}
-.role{margin:10px 0 0;color:#c9d1da;font-size:18px}
-.intro{font-size:17px;line-height:1.55;color:#aab4c0;margin:24px 0 30px}
-h2{font-size:15px;color:#dfe5eb;margin:0 0 14px}
+h1{font-size:clamp(36px,8vw,56px);line-height:1.02;margin:0;letter-spacing:-.045em}
+.role{margin:11px 0 0;color:#e3e8ee;font-size:19px;font-weight:650}
+.intro{font-size:17px;line-height:1.58;color:#aab4c0;margin:24px 0 31px}
+h2{font-size:16px;color:#e8edf2;margin:0 0 15px}
 .choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-button,a{font:inherit}
-.choices button,.secondary,.primary{border-radius:14px;padding:14px 16px;border:1px solid rgba(255,255,255,.1);cursor:pointer;transition:.18s ease;text-decoration:none;text-align:center}
-.choices button{background:#151a21;color:#edf1f5}
-.choices button:hover,.secondary:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.28);background:#1a2029}
-.actions{display:grid;gap:10px}
-.primary{background:#f4f6f8;color:#0b0d10;font-weight:700}
-.primary:hover{transform:translateY(-1px);background:#fff}
-.secondary{background:#151a21;color:#edf1f5}
-.context-message{font-size:17px;line-height:1.5;color:#d7dde4;margin:0 0 18px}
-.text-button{display:block;margin:16px auto 0;border:0;background:none;color:#8f99a6;cursor:pointer;padding:8px}
-.privacy{font-size:12px;line-height:1.55;color:#6f7884;margin:28px 0 0;border-top:1px solid rgba(255,255,255,.07);padding-top:18px}
+button,a,input,textarea{font:inherit}
+.choices button,.primary,.action-link{
+  border-radius:14px;padding:14px 16px;border:1px solid rgba(255,255,255,.10);
+  transition:.18s ease;
+}
+.choices button{
+  background:#151a21;color:#edf1f5;cursor:pointer;text-align:left;
+}
+.choices button:hover{
+  transform:translateY(-1px);
+  border-color:rgba(255,255,255,.27);
+  background:#1a2029;
+}
+.context-message{font-size:16px;line-height:1.55;color:#b8c1cc;margin:0 0 18px}
+form{display:grid;gap:14px}
+label{display:grid;gap:7px;color:#dfe5eb;font-size:14px}
+.muted{color:#7f8996;font-weight:400}
+input,textarea{
+  width:100%;
+  border:1px solid rgba(255,255,255,.10);
+  background:#0f1318;
+  color:#f3f6f9;
+  border-radius:12px;
+  padding:13px 14px;
+  outline:none;
+}
+input:focus,textarea:focus{border-color:rgba(255,255,255,.35);box-shadow:0 0 0 3px rgba(255,255,255,.05)}
+textarea{resize:vertical;min-height:110px}
+.primary,.action-link{
+  display:block;
+  width:100%;
+  background:#f4f6f8;color:#0b0d10;
+  font-weight:750;text-align:center;text-decoration:none;
+  cursor:pointer;
+}
+.primary:hover,.action-link:hover{transform:translateY(-1px);background:#fff}
+.text-button{
+  display:block;margin:4px auto 0;border:0;background:none;
+  color:#8f99a6;cursor:pointer;padding:8px;
+}
+.privacy{
+  font-size:13px;line-height:1.55;color:#7e8793;
+  margin:28px 0 0;border-top:1px solid rgba(255,255,255,.07);padding-top:18px;
+}
+footer{margin-top:10px;color:#59616c;font-size:12px}
 .hidden{display:none}
-@media(max-width:480px){.card{padding:24px;border-radius:22px}.choices{grid-template-columns:1fr}h1{font-size:40px}}
+@media(max-width:500px){
+  .card{padding:24px;border-radius:22px}
+  .choices{grid-template-columns:1fr}
+  h1{font-size:42px}
+}
